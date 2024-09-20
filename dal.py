@@ -35,7 +35,7 @@ def init_db() -> None:
 @with_db_cursor
 def get_posts(cursor: sqlite3.Cursor) -> list:
     query = '''
-    SELECT * FROM posts
+    SELECT id, writer, content, DATETIME(created_at, 'localtime') FROM posts
     '''
     cursor.execute(query)
 
