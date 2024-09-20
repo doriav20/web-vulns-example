@@ -13,32 +13,32 @@ def index():
     html_code = f'''
     <!DOCTYPE html>
     <head>
-    <link rel="stylesheet" type="text/css" href="/static/styles.css">
-    <title>Posts</title>
+        <link rel="stylesheet" type="text/css" href="/static/styles.css">
+        <title>Posts</title>
     </head>
     <body>
-    <h1>Posts</h1>
-    <h2>Create a post</h2>
-    <form action="/create_post" method="post">
-        <label for="writer">Writer:</label>
-        <input type="text" id="writer" name="writer">
-        <br>
-        <label for="content">Content:</label>
-        <input type="text" id="content" name="content">
-        <br>
-        <input type="submit" value="Submit">
-    </form>
-    <h2>All posts</h2>
-    <ul>
+        <h1>Posts</h1>
+        <h2>Create a post</h2>
+        <form action="/create_post" method="post">
+            <label for="writer">Writer:</label>
+            <input type="text" id="writer" name="writer">
+            <br>
+            <label for="content">Content:</label>
+            <input type="text" id="content" name="content">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        <h2>All posts</h2>
+        <ul>
     '''
     for post_id, writer, content, created_at in posts:
         html_code += f'''
-        <li>
-            <b>{writer}</b> - {content}
-        </li>
+            <li>
+                <b>{writer}</b> - {content}
+            </li>
         '''
     html_code += '''
-    </ul>
+        </ul>
     </body>
     </html>
     '''
