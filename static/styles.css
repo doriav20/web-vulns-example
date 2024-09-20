@@ -144,6 +144,12 @@ input[type="submit"]:active {
     transform: translateY(0);
 }
 
+.created-at {
+    font-size: 0.9em;
+    color: #6c757d; /* Light gray for contrast */
+    margin-left: 5px;
+}
+
 /* Animations */
 @keyframes fadeIn {
     to {

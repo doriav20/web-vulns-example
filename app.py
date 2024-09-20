@@ -34,7 +34,9 @@ def index():
     for post_id, writer, content, created_at in posts:
         html_code += f'''
             <li>
-                <b>{writer}</b> - <div class="content">{content}</div>
+                <b>{writer}</b>
+                <span class="created-at">({created_at})</span>
+                <div class="content">{content}</div>
             </li>
         '''
     html_code += '''
