@@ -116,6 +116,34 @@ input[type="submit"]:active {
     transform: translateY(0);
 }
 
+.scroll-button-container {
+    position: fixed; /* Fixes the position relative to the viewport */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    z-index: 1000; /* Ensures it stays on top of other content */
+}
+
+#scrollToBottom {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+
+#scrollToBottom:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+#scrollToBottom:active {
+    transform: translateY(0);
+}
+
 /* Animations */
 @keyframes fadeIn {
     to {

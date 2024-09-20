@@ -39,6 +39,14 @@ def index():
         '''
     html_code += '''
         </ul>
+        <div class="scroll-button-container">
+            <button id="scrollToBottom" onclick="scrollToBottom()">&#8595;</button>
+        </div>
+        <script>
+            function scrollToBottom() {
+                window.scrollTo(0, document.body.scrollHeight);
+            }
+        </script>
     </body>
     </html>
     '''
