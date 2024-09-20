@@ -52,4 +52,7 @@ def create_post(cursor: sqlite3.Cursor, writer: str, content: str) -> None:
     INSERT INTO posts (writer, content) VALUES ('{writer}', '{content}')
     '''
 
-    cursor.executescript(query)
+    try:
+        cursor.executescript(query)
+    except sqlite3.Error:
+        pass
