@@ -19,7 +19,7 @@ def create_table(cursor: sqlite3.Cursor) -> None:
     query = '''
     CREATE TABLE IF NOT EXISTS posts (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        writer TEXT,
+        author TEXT,
         content TEXT,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
@@ -35,7 +35,7 @@ def init_db() -> None:
 @with_db_cursor
 def get_posts(cursor: sqlite3.Cursor) -> list:
     query = '''
-    SELECT id, writer, content, DATETIME(created_at, 'localtime') FROM posts
+    SELECT id, author, content, DATETIME(created_at, 'localtime') FROM posts
     '''
     cursor.execute(query)
 
@@ -47,9 +47,9 @@ def get_posts(cursor: sqlite3.Cursor) -> list:
 
 
 @with_db_cursor
-def create_post(cursor: sqlite3.Cursor, writer: str, content: str) -> None:
+def create_post(cursor: sqlite3.Cursor, author: str, content: str) -> None:
     query = f'''
-    INSERT INTO posts (writer, content) VALUES ('{writer}', '{content}')
+    INSERT INTO posts (author, content) VALUES ('{author}', '{content}')
     '''
 
     try:

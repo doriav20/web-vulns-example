@@ -20,8 +20,8 @@ def index():
         <h1>Posts</h1>
         <h2>Create a post</h2>
         <form action="/create_post" method="post">
-            <label for="writer">Writer:</label>
-            <input type="text" id="writer" name="writer">
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author">
             <br>
             <label for="content">Content:</label>
             <input type="text" id="content" name="content">
@@ -31,10 +31,10 @@ def index():
         <h2>All posts</h2>
         <ul>
     '''
-    for post_id, writer, content, created_at in posts:
+    for post_id, author, content, created_at in posts:
         html_code += f'''
             <li>
-                <b>{writer}</b>
+                <b>{author}</b>
                 <span class="created-at">({created_at})</span>
                 <div class="content">{content}</div>
             </li>
@@ -57,10 +57,10 @@ def index():
 
 @app.route('/create_post', methods=['POST'])
 def create_post():
-    writer = request.form.get('writer', '')
+    author = request.form.get('author', '')
     content = request.form.get('content', '')
-    if writer and content:
-        dal.create_post(writer, content)
+    if author and content:
+        dal.create_post(author, content)
 
     html_code = f'''
     <script>
