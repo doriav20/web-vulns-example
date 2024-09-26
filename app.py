@@ -1,4 +1,5 @@
 from flask import Flask, request
+from markupsafe import Markup
 
 import dal
 
@@ -34,9 +35,9 @@ def index():
     for post_id, author, content, created_at in posts:
         html_code += '''
             <li>
-                <b>''' + author + '''</b>
-                <span class="created-at">(''' + created_at + ''')</span>
-                <div class="content">''' + content + '''</div>
+                <b>''' + str(Markup.escape(author)) + '''</b>
+                <span class="created-at">(''' + str(Markup.escape(created_at)) + ''')</span>
+                <div class="content">''' + str(Markup.escape(content)) + '''</div>
             </li>
         '''
     html_code += '''
