@@ -10,7 +10,7 @@ with app.app_context():
 @app.route('/')
 def index():
     posts = dal.get_posts()
-    html_code = f'''
+    html_code = '''
     <!DOCTYPE html>
     <head>
         <link rel="stylesheet" type="text/css" href="/static/styles.css">
@@ -32,11 +32,11 @@ def index():
         <ul>
     '''
     for post_id, author, content, created_at in posts:
-        html_code += f'''
+        html_code += '''
             <li>
-                <b>{author}</b>
-                <span class="created-at">({created_at})</span>
-                <div class="content">{content}</div>
+                <b>''' + author + '''</b>
+                <span class="created-at">(''' + created_at + ''')</span>
+                <div class="content">''' + content + '''</div>
             </li>
         '''
     html_code += '''
