@@ -49,10 +49,6 @@ def get_posts(cursor: sqlite3.Cursor) -> list:
 @with_db_cursor
 def create_post(cursor: sqlite3.Cursor, author: str, content: str) -> None:
     query = f'''
-    INSERT INTO posts (author, content) VALUES ('{author}', '{content}')
+    INSERT INTO posts (author, content) VALUES (?, ?)
     '''
-
-    try:
-        cursor.executescript(query)
-    except sqlite3.Error:
-        pass
+    cursor.execute(query, (author, content))
